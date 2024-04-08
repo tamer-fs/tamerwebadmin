@@ -1,0 +1,15 @@
+.TTL--container--title {
+  padding: 35px;
+}
+
+.align-center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .align-center-content {
+    justify-content: flex-start;
+  }
+}
