@@ -24,7 +24,7 @@ function TitleTopLeft({
       </div>
       <div
         id="body-content"
-        style={{ minHeight: `calc(100vh - ${titleBarHeight}px)` }}
+        style={{ minHeight: `calc(100vh - ${titleBarHeight}px)`, padding: 35 }}
       >
         {children}
       </div>

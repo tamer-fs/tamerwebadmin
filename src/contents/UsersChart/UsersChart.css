@@ -1,0 +1,21 @@
+.chart-container {
+  background-color: var(--color-grey);
+  border-radius: 12px;
+  width: calc(100% - 70px);
+  aspect-ratio: 3/1;
+  padding: 35px;
+}
+
+@media screen and (max-width: 1000px) {
+  .chart-container {
+    padding: 5px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .chart-container {
+    display: flex;
+    justify-content: center;
+  }
+}

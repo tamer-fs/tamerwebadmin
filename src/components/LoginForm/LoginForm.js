@@ -4,12 +4,16 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 import db from "../../dbConfig";
 import { ref, onValue, set } from "firebase/database";
 
+import { Link } from "react-router-dom";
+
 function LoginForm() {
   // Initialize usestates
+
   const [toggleButtonColor, setToggleButtonColor] = useState([
     "var(--color-purple)",
     0,
@@ -81,10 +85,13 @@ function LoginForm() {
             "Oeps, er is iets mis gegaan!",
             "Het bedrijf en/of het wachtwoord dat u heeft ingevuld bestaat niet."
           );
+
           return;
         }
+        sessionStorage.setItem("buisnessName", buisnessNameInput);
+        const nextBtn = document.getElementById("form-next-btn");
+        nextBtn.classList.add("show");
       });
-      sessionStorage.setItem("buisnessName", buisnessNameInput);
     }
   };
 
@@ -98,11 +105,18 @@ function LoginForm() {
     formMessageField.classList.add("show");
     formMessageField.firstElementChild.textContent = title;
     formMessageField.lastElementChild.textContent = message;
+    const nextBtn = document.getElementById("form-next-btn");
+    nextBtn.classList.remove("show");
   };
 
   const hideWarningMessage = () => {
     const formMessageField = document.getElementById("form-message-field");
     formMessageField.classList.remove("show");
+  };
+
+  const deleteWarningMessage = () => {
+    const formMessageField = document.getElementById("form-message-field");
+    formMessageField.style.display = "none";
   };
 
   return (
@@ -153,6 +167,14 @@ function LoginForm() {
           Verkeerd wachtwoord en/of verkeerd bedrijfsnaam ingevuld
         </p>
       </div>
+      <Link to="/home" className="Form__next-btn hidden" id="form-next-btn">
+        Ga verder{" "}
+        <FontAwesomeIcon
+          icon={faAngleRight}
+          color={"var(--color-purple)"}
+          fontSize={"var(--small-text)"}
+        />
+      </Link>
     </div>
   );
 }

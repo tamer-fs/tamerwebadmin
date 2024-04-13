@@ -2,6 +2,13 @@
   padding: 35px;
 }
 
+.TTL-container {
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: scroll;
+  width: 100%;
+}
+
 .align-center-content {
   display: flex;
   flex-direction: column;
@@ -11,5 +18,11 @@
 @media screen and (max-width: 1000px) {
   .align-center-content {
     justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .TTL-container {
+    width: 100vw;
   }
 }

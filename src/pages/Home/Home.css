@@ -1,0 +1,13 @@
+.userchart-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.userchart-container--title {
+  color: var(--color-white);
+  font-family: Poppins;
+  font-size: var(--subheader-text);
+}
